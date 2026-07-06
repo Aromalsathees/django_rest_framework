@@ -21,6 +21,7 @@ class home(APIView):
             'count':get_count
         },status=status.HTTP_200_OK)
     
+
     def post(self,request):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid():
@@ -79,6 +80,102 @@ class update_student(APIView):
             return Response({
                 'message':f'The id{id} does not exist on Database'
             }, status=status.HTTP_404_NOT_FOUND)
+        
+
+class get_one_student(APIView):
+
+    def get(self,request,get_id):
+
+        try:
+            get_student = Task.objects.get(id=get_id)
+            serializer = TaskSerializer(get_student)
+            
+            return Response({
+                'message':f'The student id {get_id} has succcesfully fetched from database',
+                'data':serializer.data
+            }, status=status.HTTP_200_OK)
+        
+        except Task.DoesNotExist:
+            return Response({
+                'message':f'The student id{get_id} Does not exist on Database',
+            }, status=status.HTTP_404_NOT_FOUND)
+        
+
+class search_data(APIView):
+
+    def get(self, request):
+        try:
+            keyword = request.GET.get('q')
+
+            get_student = Task.objects.filter(name__icontains=keyword)   
+
+            if get_student.exists():
+
+                serializer = TaskSerializer(get_student, many=True)
+
+                return Response({
+                    'message': f'The student "{keyword}" is present in the database',
+                    'data': serializer.data
+                }, status=status.HTTP_200_OK)
+
+            return Response({
+                'message': f'The student "{keyword}" does not exist in the database'
+            }, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as e:
+            return Response({
+                'message': 'Something went wrong',
+                'error': str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+        
+# class search_data(APIView):
+
+#     def get(self, request):
+#         try:
+#             keyword = request.GET.get('q')  
+#             get_student = Task.objects.filter(name__icontains=keyword)
+
+#             serializer = TaskSerializer(get_student, many=True)
+
+#             return Response({
+#                 'message':f'The student {keyword} is present on the Database',
+#                 'data':serializer.data
+#             }, status=status.HTTP_200_OK)
+        
+#         except Exception as e:
+#             return Response({
+#                 'message':f'The student {keyword} Does not exist on Database',
+#                 'error':str(e)
+#             }, status=status.HTTP_404_NOT_FOUND)
+
+
+# get() , all() , filter()
+
+
+# def get_oue_student(request,get_id):
+
+#     try:
+#         get_student = Task.objects.get(id=get_id)
+#         return render(request, 'home.html', {'get_student':get_student})
+    
+#     except Task.DoesNotExist:
+#         messae.errors()
+#         return redirect('home')
+
+
+# def search_data(request):
+    
+#     keyword = request.GET.get('q')
+
+#     get_student = Task.objects.filter(name__icontains=keyword)
+    
+
+
+
+
+
+
 
 
 
