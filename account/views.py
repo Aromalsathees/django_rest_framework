@@ -8,7 +8,6 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 # Create your views here.
 
-
 class Register_view(APIView):
 
     permission_classes = [permissions.AllowAny]
@@ -64,7 +63,7 @@ class home(APIView):
     
 
 
-#     {
-#     "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4MzU2Nzk3MCwiaWF0IjoxNzgzNDgxNTcwLCJqdGkiOiI0NTkwMDI3ZDc1MWU0NjhkOTk2ZDI5NDBjMDk0YzU0MiIsInVzZXJfaWQiOiIzIn0.m1_-RbawGAVycA9ODqEugwroZUrH3iM15-_a9mznLX0",
-#     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzNDgxODcwLCJpYXQiOjE3ODM0ODE1NzAsImp0aSI6IjVkYzkwMjFjYzFhMzQ5OTE4OGI5MTJiNDY4MmI4OTY2IiwidXNlcl9pZCI6IjMifQ.QpLZL_3rNp8HUinXMQF81-u9NWSdmB50UzuCkpItqbw"
+# {
+#     "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4MzY0ODU5MywiaWF0IjoxNzgzNTYyMTkzLCJqdGkiOiI2YjczNmE0MzBmYTE0OTRkOTJlNmJmM2Y0YWE2N2NjMiIsInVzZXJfaWQiOiI5In0.AiLvdIVr-q1CQjU6GCtJHgcpYJ7rcLJQIaORbTnk_gI",
+#     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgzNTYyNDkzLCJpYXQiOjE3ODM1NjIxOTMsImp0aSI6Ijk2NmQxNzEyNTdiZTRhYWE4NWEwNzJhOWM4ZDA0OGU2IiwidXNlcl9pZCI6IjkifQ.20mt_cJMHUp-LVwsA3YSyuJ3zx6wEvNNXkTozYdp3vA"
 # }
