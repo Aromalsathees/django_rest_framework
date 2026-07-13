@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'rest_framework.authtoken',
     'token_auth',
+    'basic_auth',
 
 
     # 'rest_framework_simplejwt',
@@ -53,14 +54,14 @@ INSTALLED_APPS = [
 ]
 
 # settings.py
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ]
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.TokenAuthentication',
+#     ],
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',
+#     ]
+# }
 
 
 # REST_FRAMEWORK = {
@@ -71,6 +72,19 @@ REST_FRAMEWORK = {
 #         'rest_framework.permissions.IsAuthenticated',
 #     ),
 # }
+
+# settings.py
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+   
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Forces authentication globally
+    ]
+}
+
 
 
 MIDDLEWARE = [

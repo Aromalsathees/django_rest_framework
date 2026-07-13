@@ -23,5 +23,6 @@ urlpatterns = [
     path('account/',include('account.urls')),
     path('task/',include('task.urls')),
     path('token/', include('token_auth.urls')),
+    path('basic/',include('basic_auth.urls')),
     
 ]
